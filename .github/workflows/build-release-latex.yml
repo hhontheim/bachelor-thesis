@@ -1,0 +1,48 @@
+name: Build and release LaTeX document
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build_release_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+        with:
+          fetch-depth: '0'
+      - name: Bump version and push tag
+        id: bump
+        uses: hhontheim/github-tag-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true
+          DEFAULT_BUMP: 'patch'
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.bump.outputs.new_tag }}
+          release_name: Version ${{ steps.bump.outputs.new_tag }}
+          draft: false
+          prerelease: false
+      - name: Export Version to file
+        run: |
+          echo "Version \\texttt{${{ steps.bump.outputs.new_tag }}}" > misc/version
+      - name: Compile LaTeX document
+        uses: hhontheim/latex-action@master
+        with:
+          root_file: ./bachelor-thesis.tex
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./bachelor-thesis.pdf
+          asset_name: bachelor-thesis.pdf
+          asset_content_type: application/pdf

@@ -1,0 +1,3 @@
+[submodule "bibliography/sources"]
+	path = bibliography/sources
+	url = git@github.com:hhontheim/bachelor-thesis-sources.git

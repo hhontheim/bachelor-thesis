@@ -1,0 +1,259 @@
+\chapter{Stand der Wissenschaft und verwandte Arbeiten}
+
+In diesem Kapitel wollen wir uns einen Überblick über den aktuellen Stand der Forschung verschaffen. Es wird untersucht, welche Erkenntnisse es zum Design von \acp{UI} für ältere Personen gibt und welche Richtlinien sich daraus ableiten lassen, die bei der Entwicklung einer Touch-basierten Anwendung beachtet werden sollten. Zudem wird gezeigt, welche Ergebnisse es hinsichtlich der Benutzung von Smartwatches durch ältere Personen gibt. Auch eine Unterstützung durch Bluetooth wird vorgestellt.
+
+\section{User Interfaces für ältere Menschen}\label{sec:guidelines}
+
+Mit zunehmendem Alter nimmt eine Vielzahl von Fähigkeiten ab. Oft beeinträchtigt sind das Sehen und Hören, die Mobilität aber auch die kognitiven Fähigkeiten, die sich auf verschiedene Aspekte des Alltagslebens auswirken. Eine uneingeschränkte Interaktion mit Smartphones oder anderen Geräten, kann nur durch Unterstützung erfolgen \cite{Almeida:2015:Recommendations-for-the-Development-of-Web-Interfaces}\cite{Diaz-Bossini:2014:Accessibility-to-Mobile-Interfaces}\cite{Huang:2016:Design-of-Smart-Watch}\cite{Salman:2018:Usability-Evaluation-of-the-Smartphone}\cite{Sin:2015:Evaluation-of-Wearable-Device}. Selbst Personen ohne Einschränkungen fällt es oft schwer, Touchscreens fehlerfrei zu bedienen. Auch wenn man vorsichtig ist, führt eine ungenaue Berührung manchmal dazu, dass eine falsche Funktion ausgeführt wird. Zudem kann eine Verwendung im Freien unmöglich sein, wenn der Inhalt des Displays in der Sonne schwer zu sehen ist \cite{Kivirinta:2013:The-Right-UI-for-Elderly-People;}.
+
+\subsection{Universal Access}
+
+Oft befassen sich Anwendungen, die für ältere Menschen bestimmt sind, ausschließlich mit der Barrierefreiheit. Ein wichtiger Punkt wird hierbei jedoch gerne übersehen: die Vertrautheit. Selbst wenn eine Anwendung so zugänglich wie nur möglich und somit sicherlich deutlich lesbarer und einfacher ist, kann diese doch noch so fremd sein. Sie bleibt ein Objekt, das von dem Wissen und der Kultur einer älteren Person weit entfernt ist \cite{Leonardi:2010:An-Exploratory-Study-of-a-Touch-Based}.
+
+\doublequotes{Universal Access} oder \doublequotes{Universal Design} bezieht sich schon längst nicht mehr ausschließlich auf die Barrierefreiheit einer Anwendung und ist ein Ansatz, dieses Problem zu beheben, indem es diesen sieben Prinzipien folgt \cite{Kivirinta:2013:The-Right-UI-for-Elderly-People;}:
+
+\begin{enumerate}%[nosep]
+	\item \textbf{Einfache und intuitive Nutzung:} Leicht zu verstehen, unabhängig von Erfahrung, Wissen, Sprachkenntnissen oder dem Konzentrationsgrad des Nutzers.
+	\item \textbf{Gerechte Nutzung:} Keine Nutzergruppe wird benachteiligt oder stigmatisiert.
+	\item \textbf{Wahrnehmbare Informationen:} Vermittelt notwendige Informationen effektiv, ungeachtet der Umgebungsbedingungen oder sensorischen Fähigkeiten.
+	\item \textbf{Fehlertoleranz:} Minimiert die Folgen versehentlicher oder unbeabsichtigter Handlungen.
+	\item \textbf{Berücksichtigung von Vorlieben und Fähigkeiten:} Individuelle Anpassung an den Nutzer.
+	\item \textbf{Geringe körperliche Anstrengung:} Kann effizient und bequem und mit einem Minimum an Ermüdung eingesetzt werden.
+	\item \textbf{Freiraum für den Zugang und die Verwendung:} Angemessen hinsichtlich des Zugangs, der Erreichbarkeit und Nutzung unabhängig der Körpergröße, Körperhaltung oder Mobilität des Nutzers.
+\end{enumerate}
+
+Das Ziel ist es, ein Design zu entwickeln, das die Fähigkeiten aller Menschen berücksichtigt. Ein Design soll nicht bloß auf die Bedürfnisse einer ganz bestimmten Zielgruppe angepasst sein. Zur Inklusion aller Menschen braucht es einen Gestaltungsrahmen, der für alle gilt \cite{Marcus:2003:Universal-Ubiquitous-User-Interface}\cite{Stephanidis:2001:User-interfaces-for-all:}. 
+
+\subsection{Human-centered Design}
+
+Ein oft verwendeter Begriff ist der des \doublequotes{Human-centred Design} oder \doublequotes{User-centred Design} (dt. \doublequotes{mensch-/nutzerzentrierte Gestaltung}). Ein Ziel dessen ist es, dem Menschen die Kontrolle zu lassen. Doch je mehr Kontrolle man dem Nutzer lässt, umso weniger kann automatisiert werden. Auch führt eine Erhöhung der Privatsphäre dazu, dass ein System weniger Daten zur Verarbeitung hat und so \doublequotes{weniger intelligent} handeln kann. \doublequotes{Privacy by Design} bezeichnet ein Paradigma, bei dem der Datenschutz schon bei der Entwicklung eines Systems berücksichtigt wird \cite{Stephanidis:2001:User-interfaces-for-all:}\cite{Streitz:2018:Beyond-smart-only-cities:}.
+
+Die Norm ISO 9241-210 \cite{ISO-Central-Secretary:2019:Ergonomics-of-human-system-interaction}, der Ersatz von ISO 13407, beschreibt den Prozess des \doublequotes{Human-centred Design}, der aus vier Phasen besteht:
+\begin{enumerate*}[label=(\arabic*)]
+	\item Verstehen des Nutzungskontextes,
+	\item Festlegung der Nutzungsanforderungen,
+	\item Entwurf von Gestaltungslösungen,
+	\item Evaluation der Gestaltungslösungen.
+\end{enumerate*}
+\autoref{dia:human-centered-design-process} veranschaulicht diese Phasen graphisch. Bis ein optimales Endergebnis erzielt worden ist, werden diese iterativ durchlaufen \cite{Burmester::Design-Thinking--die-neue}\cite{Geis::Neue-ISO-9241-210-Prozess}.
+
+\begin{figure}[p]
+	% Template: http://www.texample.net/tikz/examples/control-system-principles/
+	\begin{adjustbox}{center} % 	\begin{adjustbox}{scale=0.7,center}
+		\begin{tikzpicture}[auto, node distance=1.75cm and,>=latex'] % Reihenfolge: vertical and horizontal!!
+		
+		\tikzstyle{all} = [draw, fill=blue!20, minimum height=3em, minimum width=6em, align=center]
+		\tikzstyle{block} = [rectangle, all]
+		\tikzstyle{round} = [ellipse, all]
+		\tikzstyle{label} = [node distance=0.cm, align=right]
+		
+		\node [round, name=plan] {Den menschzentrierten\\Gestaltungsprozess planen};
+		
+		% Achtung! Andere Reihenfolge im Code (nicht im Zyklus!!)
+		\node [block, below = of plan] (context) {Den Nutzungskontext\\verstehen und beschreiben};
+		\node [block, below = of context] (evaluate) {Gestaltungslösungen aus der\\Benutzerperspektive evaluieren};
+		\node [block, right = of evaluate] (develop) {Gestaltungslösungen entwickeln,\\die die Nutzungsanforderungen erfüllen};
+		\node [block, above = of develop] (specify) {Die Nutzungsanforderungen\\spezifizieren};
+		
+		\node [round, below = of evaluate] (done) {Gestaltungslösung erfüllt die\\Nutzungsanforderungen};
+		
+		\draw [->] (plan) -- (context);
+		\draw [->] (context) edge[bend left] (specify);
+		\draw [->] (specify) edge[bend left] (develop);
+		\draw [->] (develop) edge[bend left] (evaluate);
+		\draw [->, dashed] (evaluate) edge[bend left] node[name=middle] {} (context);
+		\draw [->, dashed] (evaluate) -- (specify);
+		\draw [->, dashed] (evaluate.east) -- (develop.west);
+		\draw [->] (evaluate) -- (done);
+		
+		\node [label, left = of middle] {Iteration, soweit\\Evaluierungsergebnisse\\Bedarf hierfür aufzeigen};
+		
+		\end{tikzpicture}
+	\end{adjustbox}
+	\caption{\label{dia:human-centered-design-process}Nach ISO 9241-210 definierter, iterativer Prozess zur Entwicklung eines Human-centred Designs \cite{Geis::Neue-ISO-9241-210-Prozess}.}
+\end{figure}
+
+\subsection{User Interface Richtlinien für ältere Personen}
+
+Es existieren bereits einige Arbeiten, die sich mit Benutzerschnittstellen für ältere Personen beschäftigen. Um die Zugänglichkeit zu erhöhen wurden viele Richtlinien erarbeitet, die bei der Entwicklung einer mobilen Anwendung Berücksichtigung finden sollten. Im Idealfall sollte ein Nutzer eine Anwendung sofort verstehen und bedienen können \cite{Kivimaki:2013:User-Interface-for-Social}.
+
+\subsubsection{Richtlinien nach Zaphiris et al. und der WAI}
+
+Mithilfe einer Fokusgruppe, die auch ältere Personen beinhaltete, entwickelten \citeauthor{Zaphiris:2005:Age-Centered-Research-Based-Web-Design} Richtlinien für die Entwicklung von Websiten. Die dort entstandenen 38 Richtlinien wurden in elf Kategorien zusammengefasst, wie beispielsweise die \doublequotes{Benutzung von Grafiken} oder solche, die auf die kognitiven Fähigkeiten der Nutzer abgestimmt sind \cite{Zaphiris:2005:Age-Centered-Research-Based-Web-Design}\cite{Kurniawan:2005:Research-Derived-Web-Design-Guidelines}.
+Einige dieser Richtlinien lassen auf die Entwicklung von Apps übertragen. Da manche Kategorien, wie \doublequotes{Links} oder \doublequotes{Suchmaschinen}, nicht infrage kommen, haben \textcite{Diaz-Bossini:2014:Accessibility-to-Mobile-Interfaces} diese Richtlinien für die Benutzung in Apps reduziert und sich auf sechs Kategorien mit 19 Richtlinien beschränkt. Tabelle \ref{tab:zaphiris-reduced-to-mobile} listet diese auf.
+
+\begin{table}[p]
+%		\centering
+	\begin{itemize}[label={}]
+		\item \textbf{Design interaktiver Elemente}
+		\begin{itemize}[nosep]
+			\item Verwenden Sie größere Elemente.
+			\item Zeigen Sie eine klare Bestätigung bei Interaktion, die für ältere Personen sichtbar sein sollte, die Änderungen nicht unbedingt bemerken müssen.
+			\item Von einem Älteren sollte nicht erwartet werden, dass er doppelt klicken muss.
+		\end{itemize}
+			\item \textbf{Verwendung von Grafiken}
+		\begin{itemize}[nosep]
+			\item Grafiken sollten relevant sein und nicht zur Dekoration dienen. Verwenden Sie keine Animationen.
+			\item Bilder sollten Beschreibungen zur Verfügung stellen.
+			\item Icons sollten einfach, aber aussagekräftig sein.
+		\end{itemize}
+			\item \textbf{Funktionen des Browser-Fensters}
+		\begin{itemize}[nosep]
+			\item Vermeiden Sie Scrollbalken.
+			\item Stellen Sie nur ein offenes Fenster dar. Pop-ups, animierte Werbung oder Überlappung mehrerer Fenster sollten vermieden werden.
+		\end{itemize}
+			\item \textbf{Gestaltung des Inhalts}
+		\begin{itemize}[nosep]
+			\item Nutzen Sie einfache und verständliche Sprache.
+			\item Vermeiden Sie unwichtige Informationen.
+			\item Wichtige Informationen sollten hervorgehoben werden.
+			\item Informationen sollten vor allem im Zentrum positioniert werden.
+			\item Das Bildschirmlayout, die Navigation und die verwendete Terminologie sollten einfach, klar und konsistent sein.
+		\end{itemize}
+			\item \textbf{Anpassung an kognitive Fähigkeiten der Nutzer}
+		\begin{itemize}[nosep]
+			\item Stellen Sie ausreichend Zeit zum Lesen von Informationen zur Verfügung.
+			\item Reduzieren Sie die Beanspruchung des Gedächtnisses. Erkennen und unterstützen Sie das Verhalten der Nutzer und stellen Sie so weniger Wahlmöglichkeiten zur Verfügung.
+		\end{itemize}
+			\item \textbf{Verwendung von Farben und Hintergründen}
+		\begin{itemize}[nosep]
+			\item Farben sollten zurückhaltend verwendet werden.
+			\item Blaue und grüne Farbtöne sollten vermieden werden.
+			\item Hintergründe sollten nicht rein weiß sein. Die Helligkeit zwischen verschiedenen Bildschirmen sollte sich nicht schnell ändern. Stellen Sie Vorder- und Hintergründe kontrastreich dar. Vermeiden Sie farbigen Text auf farbigen Hintergründen.
+			\item Bei Verwendung von Farben, sollten Sie auch schwarz und weiß verwenden.
+		\end{itemize}
+	\end{itemize}
+	\caption{\label{tab:zaphiris-reduced-to-mobile}Von \textcite{Diaz-Bossini:2014:Accessibility-to-Mobile-Interfaces} gekürzte Richtlinien nach \textcite{Zaphiris:2005:Age-Centered-Research-Based-Web-Design}. Aus dem Englischen übersetzt.}
+\end{table}
+
+Auch die \ac{WAI} des \ac{W3C} hat für die Entwicklung von Web-Anwendungen Best Practices veröffentlicht, die \doublequotes{\ac{MWBP}} und die \doublequotes{\ac{MWABP}}. Diese sind Anpassungen der \doublequotes{\ac{WCAG}}, die für die Entwicklung von Webseiten gelten \cite{Web-Accessibility-Initiative::Older-Users-and-Web-Accessibility:}. Anders als die \ac{WCAG} sind diese jedoch keine Richtlinien.
+Eingeteilt sind diese in vier Kategorien:
+\begin{enumerate*}[label=(\arabic*)]
+	\item Wahrnehmbarkeit,
+	\item Bedienbarkeit,
+	\item Verständlichkeit,
+	\item Robustheit.
+\end{enumerate*}
+Letztere wurde von \citeauthor{Diaz-Bossini:2014:Accessibility-to-Mobile-Interfaces} nicht berücksichtigt, da diese nicht auf native Anwendungen anwendbar seien.
+
+\citeauthor{Diaz-Bossini:2014:Accessibility-to-Mobile-Interfaces} haben schließlich anhand der gekürzten Richtlinien von \citeauthor{Zaphiris:2005:Age-Centered-Research-Based-Web-Design} (\autoref{tab:zaphiris-reduced-to-mobile}), den Best Practices der \ac{WAI} \cite{Web-Accessibility-Initiative::Older-Users-and-Web-Accessibility:}\cite{Diaz-Bossini:2014:Accessibility-to-Mobile-Interfaces} und den \citetitle{Google-Inc.::Android-Accessibility-Practices} von \textcite{Google-Inc.::Android-Accessibility-Practices} drei native Android-Apps evaluiert. Keine dieser Apps erfüllt alle Richtlinien und Best Practices vollständig. Manchen Apps fehlt es beispielsweise an Unterstützung zur Sprachausgabe einer Beschreibung von Bildern, andere fokussieren sich ausschließlich auf Unterstützung sehbeeinträchtigter Personen \cite{Diaz-Bossini:2014:Accessibility-to-Mobile-Interfaces}.
+
+\subsubsection{Richtlinien nach den SMASH}
+
+Einen anderen Ansatz der Bewertung von \aclp{UI} verfolgen \textcite{Salman:2018:Usability-Evaluation-of-the-Smartphone}mit den von \textcite{Inostroza:2016:Developing-SMASH:-A-set-of-SMArtphones} entwickelten \doublequotes{\acl{SMASH}} (\acs{SMASH}). Diese bestehen aus 12 Heuristiken, die in \autoref{tab:smash-list} aufgelistet sind. \citeauthor{Salman:2018:Usability-Evaluation-of-the-Smartphone} nutzen einen formativen Ansatz zur Bestimmung der Benutzbarkeit (Usability) der Benutzeroberfläche eines Android Smartphones (Version 6.0.1 \doublequotes{Marshmallow}). Anders als der summative Ansatz, der sich auf die Messung der Effektivität, Effizienz und Zufriedenheit bezieht, hängt beim formativen Ansatz das Vorhandensein der Benutzbarkeit von der Abwesenheit von Usability-Problemen ab \cite{Lewis:2014:Usability:-Lessons-Learned}. Diese Probleme sollen mithilfe der \ac{SMASH} gefunden werden.
+
+\begin{table}[H]
+	\begin{enumerate}[label={SMASH\arabic*.},leftmargin=7em,nosep]
+		\item Sichtbarkeit des Systemstatus.
+		\item Übereinstimmung zwischen System und der realen Welt.
+		\item Kontrolle und Freiheiten des Benutzers.
+		\item Einheitlichkeit und Standards.
+		\item Fehlervermeidung.
+		\item Keine Überanstrengung des Gedächtnisses.
+		\item Anpassungen und Shortcuts.
+		\item Effizienz hinsichtlich Nutzung und Leistung.
+		\item Ästhetisches und minimalistisches Design.
+		\item Anwendern helfen, Fehler zu erkennen, zu diagnostizieren und zu beheben.	
+		\item Hilfe und Dokumentation.
+		\item Körperliche Interaktion und Ergonomie.
+	\end{enumerate}
+	\caption{\label{tab:smash-list}Liste der \acf{SMASH}\cite{Inostroza:2016:Developing-SMASH:-A-set-of-SMArtphones}. Aus dem Englischen übersetzt.}
+\end{table}
+
+
+Nach Analyse des Betriebssystems durch von \citeauthor{Salman:2018:Usability-Evaluation-of-the-Smartphone} ausgesuchten Experten, wurden 27 Verletzungen gegen die \ac{SMASH} vorhergesagt. Mit jeweils sieben Verstößen sind SMASH6 und SMASH2 Spitzenreiter, gefolgt von SMASH11 (vier Verstöße), SMASH4 (drei Verstöße) und sechs weiteren Verstößen. $ 79.17 \% $ dieser vorhergesagten Verletzungen wurden im Rahmen der formativen Analyse durch einen anschließenden Test mit älteren Personen (über 60 Jahre alt) bestätigt. Dieser Test offenbarte fünf weitere Verstöße, die nicht vorhergesagt wurden. Schließlich wurden alle Verstöße in vier Kategorien eingeteilt (Erscheinungsbild, verwendete Sprache, Dialog mit dem Anwender und Informationsverwaltung) und Gestaltungslösungen dagegen vorgeschlagen. Diese lassen sich in \autoref{tab:smash-conforming-design-solutions} finden. Beispiele in \cite{Salman:2018:Usability-Evaluation-of-the-Smartphone}.
+
+\begin{table}[p]
+	\small
+%	\renewcommand{\tablename}{Tab.}
+%	\centering
+	\begin{itemize}[label={}]
+%		\setlength{\parskip}{0pt}
+		\item \textbf{Erscheinungsbild}
+		\begin{itemize}[nosep]
+			\item Stellen Sie Elemente durch besser sichtbare Farben und in einer auffälligen Größe dar.
+			\item Platzieren Sie Elemente, insbesondere wichtige, im sichtbaren Bereich. Dieser sollte vorzugsweise mit dem Daumen zu erreichen sein.
+			\item Unterscheiden Sie deutlich zwischen interaktiven und nicht-interaktiven Elementen und ergänzen Sie die interaktiven mit einem Label.
+			\item Wahren Sie einen deutlichen Kontrast zwischen Elementen und deren Hintergrund.
+			\item Nutzen Sie aussagekräftige Icons, die konsistent verwendet werden.
+			\item Passen Sie das Design an die Erfahrungen der Älteren an.
+			\item Vermeiden Sie ungewohnte Designs.
+		\end{itemize}
+		\item \textbf{Verwendete Sprache}
+		\begin{itemize}[nosep]
+			\item Vermeiden Sie mehrdeutige Begriffe. Passen Sie sich dem Vokabular der Älteren an.
+			\item Ergänzen Sie Text, wo angebracht, mit Icons.
+			\item Vermeiden Sie die Nutzung technischer Begriffe, wie beispielsweise \doublequotes{PIN}. Wo notwendig helfen Sie dem Nutzer, diese zu verstehen.
+			\item Verwenden Sie eindeutige Begriffe für die Label von UI-Elementen.
+			\item Halten Sie die verwendete Terminologie konsistent.
+		\end{itemize}
+		\item \textbf{Dialog mit dem Anwender}
+		\begin{itemize}[nosep]
+			\item Die wichtigste Geste zur Interaktion mit der Benutzeroberfläche sollte eine einfache Berührung sein (Single Tap).
+			\item Wenn Sie knifflige Gesten wie beispielsweise \doublequotes{Drag and Drop} oder \doublequotes{Tap and Hold} nutzen, bieten Sie älteren Menschen eine alternative Möglichkeit, die Aufgabe auszuführen.
+			\item Zeigen Sie für jede destruktive Aktion eine Bestätigungsmeldung, die die Folge beschreibt.
+			\item Machen Sie älteren Menschen durch unmittelbares Feedback deutlich, wann eine Aktion ausgeführt wurde.
+			\item Unterstützen Sie den Nutzer durch zusätzliche Feedbacks, wie beispielsweise Audio-Feedbacks.
+			\item Erlauben Sie älteren Benutzern, die genutzten Ressourcen zu verwalten. Führen Sie Funktionen in kurzen und einfachen Schritten aus.
+			\item Gewährleisten Sie die gleiche, konsistente Systemreaktion auf die gleiche Benutzeraktion.
+		\end{itemize}
+		\item \textbf{Informationsverwaltung}
+		\begin{itemize}[nosep]
+			\item Platzieren Sie die wichtigsten Informationen im Vordergrund.
+			\item Gruppieren Sie unwichtigere Informationen.
+			\item Vermeiden Sie unwichtige Informationen.
+			\item Stellen Sie ein Widget zur Verfügung, das die empfangenen Warnmeldungen und Benachrichtigungen sammelt und dem Benutzer hilft, diese zu verwalten.
+			\item Geben Sie Hilfestellungen zur aktuellen Tätigkeit des Nutzers und zeigen Sie die notwendigen Schritte, die zu befolgen sind.
+			\item Ergänzen Sie die Benutzeroberfläche mit visuellen Hinweisen, um älteren Menschen zu helfen, sich versteckter Inhalte bewusst zu werden.
+			\item Helfen Sie mit Tooltips, wenn beispielsweise eine bestimmte Geste zur Ausführung einer bestimmten Aufgabe erforderlich ist.
+		\end{itemize}
+	\end{itemize}
+	\caption{\label{tab:smash-conforming-design-solutions}Von \textcite{Salman:2018:Usability-Evaluation-of-the-Smartphone} entwickelte Gestaltungslösungen zur Einhaltung der \acf{SMASH} von \textcite{Inostroza:2016:Developing-SMASH:-A-set-of-SMArtphones}. Aus dem Englischen übersetzt.}
+\end{table}
+
+\subsection{Weitere Erkenntnisse}
+
+Zusätzlich zu den bereits genannten Richtlinien und Empfehlungen existieren weitere Arbeiten, die sich ebenfalls mit \aclp{UI} für Ältere beschäftigen. Da diese mit den bereits erwähnten Arbeiten in vielen Punkten übereinstimmen, wird im Folgenden nur auf neue Erkenntnisse oder Unterschiede eingegangen.
+
+\paragraph{Animationen}
+Um den Nutzer über asynchrone Ereignisse oder Hintergrundaktivitäten zu informieren, sind Animation hilfreich. Nach Erfahrung von \textcite{Leonardi:2010:An-Exploratory-Study-of-a-Touch-Based} reichen diese allerdings nicht notwendigerweise aus, um der Aktivitäten auch tatsächlich bewusst zu werden.
+
+\paragraph{Erster Start der Anwendung}
+Stellen Sie die Hauptfunktionen beim ersten Starten der Anwendung vor und helfen Sie dem Nutzer, sich zurechtzufinden \cite{Almeida:2015:Recommendations-for-the-Development-of-Web-Interfaces}.
+
+\paragraph{Feedback}
+Geben Sie visuelles, akustisches oder auch haptisches Feedback bei Interaktion mit den Elementen \cite{Almeida:2015:Recommendations-for-the-Development-of-Web-Interfaces}.
+
+\paragraph{Gesten}
+Halten Sie Gesten einfach und vermeiden Sie solche, die mehr als zwei Finger benötigen oder den Einsatz beider Hände erfordern \cite{Almeida:2015:Recommendations-for-the-Development-of-Web-Interfaces}. Problematisch ist der \doublequotes{Double Tap}, da zwischen den beiden Berührungen zu viel Zeit liegen kann, so dass die Geste als zwei einfache Interaktionen interpretiert werden könnte \cite{Boll:2015:User-Interfaces-with}.
+
+Nicht zu vernachlässigen ist auch, dass ein einfacher \doublequotes{Tap}, der sehr langsam ausgeführt wird, unter Umständen als \doublequotes{Drag and Drop} interpretiert werden kann, wenn der Finger leicht zur Seite bewegt wird. Um einen gewollten \doublequotes{Drag and Drop} auszuführen muss ersichtlich sein, dass ein Element auch verschoben werden kann \cite{Leonardi:2010:An-Exploratory-Study-of-a-Touch-Based}.
+
+\paragraph{Layout von Elementen}
+Hinsichtlich der Mindestgröße von Elementen, gibt es verschiedene Erkenntnisse. Empfehlungen reichen von Durchmessern mit 9 mm\cite{Burkhard:2012:Evaluating-Touchscreen-Interfaces}, über 12 mm\cite{Guerreiro:2010:Towards-Accessible-Touch}, bis hin zu 16.5 mm\cite{Murata:2005:Usability-of-Touch-Panel-Interfaces}. Zwischen verschiedenen Interface-Elementen sollte ein Mindestabstand von 44 px eingehalten werden, damit diese auch gut erreicht werden können \cite{Almeida:2015:Recommendations-for-the-Development-of-Web-Interfaces}.
+
+\paragraph{Schrift}
+Nutzen Sie serifenlose Schriftarten\footnote{\textsf{Ein Beispiel für eine serifenlose Schriftart ist dieser Satz.}} für Displays \cite{Almeida:2015:Recommendations-for-the-Development-of-Web-Interfaces}\cite{Darroch:2005:The-Effect-of-Age-and-Font-Size}. Verwenden Sie eine Schriftgröße, die in etwa $ 3.5 $ Millimetern auf dem Display entspricht \cite{Darroch:2005:The-Effect-of-Age-and-Font-Size}.
+
+\paragraph{Sofortige Aktualisierung}
+Vermeiden Sie Funktionen, die die angezeigten Informationen bei jeder Interaktion ändern, wie beispielsweise Filter für Listen und Autovervollständigungen \cite{Almeida:2015:Recommendations-for-the-Development-of-Web-Interfaces}.
+
+\section{Wearables und Smartwatches}
+
+Tragbare Geräte, wie Smartwatches, erfreuen sich immer größerer Beliebtheit. Doch ein Problem, welches diese mit sich bringen, ist die Tatsache, dass das Display deutlich kleiner ist, als das eines Smartphones. Bei Verwendung dieser kleinen Geräte durch ältere Menschen, kann es aufgrund der bereits erwähnten körperlichen und geistigen Einschränkungen, zu vielen Problemen kommen \cite{Huang:2016:Design-of-Smart-Watch}.
+
+\textcite{Fang:2014:A-New-Smart-Wearable-Device} haben sich mit Wearables für ältere Menschen auseinandergesetzt. Ein Ziel ist es gewesen, das Unbehagen zu reduzieren, das durch das Tragen eines Gerätes hervorgerufen werden kann. Untersucht wurden drei Positionen, an denen ein Gerät getragen werden kann: das Handgelenk, der Oberarm und der Nacken.
+
+Sie sind zu dem Ergebnis gekommen, dass das Handgelenk am besten geeignet ist. Die Angst, die hervorgerufen werden kann, wenn ein Gerät am Nacken getragen wird, ist am Handgelenk deutlich geringer. Ein weiterer Vorteil des Tragens am Handgelenk, ist die bessere Lesbarkeit im Vergleich zum Oberarm. Es ist wesentlich einfacher, den Arm anzuheben, um einen guten Betrachtungswinkel auf ein Display zu bekommen, als den Kopf in Richtung des Oberarms zu drehen.
+
+Dadurch, dass ein Träger eine Armbanduhr problemlos überall mit hin nehmen kann und sie im Handumdrehen bereit ist und nicht erst aus einer Tasche geholt werden muss, eignet sie sich besser als andere smarte Geräte. Eine Vielzahl aller Menschen ist ohnehin bereits an das Tragen von Uhren gewöhnt \cite{Raghunath:2002:User-Interfaces-for-Applications}.
+
+Auch \textcite{Sin:2015:Evaluation-of-Wearable-Device} untersuchten die Benutzung von Wearables durch ältere Personen. Sie konstruierten einen Uhr-Prototypen, mit dem sich Lampen und Ventilatoren über eine physische/greifbare Benutzerschnittstelle \doublequotes{Tangible User Interface} steuern ließen. Im direkten Vergleich mit einer Smartphone-App, die die gleichen Funktionen über eine graphische Schnittstelle bereitstellte, eignete sich die Uhr besser. Sie verfügte über einen Ring, den die Nutzer zum Auswählen der Funktionen drehen konnten. Die meisten Smartwatches auf dem Markt verfügen allerdings über eine graphische Benutzerschnittstelle.
+
+Spezielle Richtlinien oder Best Practices, wie sie für User Interfaces von Smartphones existieren, konnten für Smartwatches nicht gefunden werden. Die Empfehlung, um den Platz auf dem kleinen Display einer Smartwatch bestmöglich auszunutzen, geht jedoch in die Richtung, dass der dargestellte Inhalt mit Bedacht ausgewählt werden sollte. Apple nutzt bei der Apple Watch neben dem Display eine weitere Eingabemöglichkeit, die \emph{Digital Crown}. Diese sitzt außen am Gehäuse, ähnlich der Krone analoger Armbanduhren. Die Uhr erkennt, wenn die Krone gedreht oder gedrückt wird. Auf diese Weise kann ein Nutzer durch Listen scrollen oder den Zoomfaktor von Bildern verändern, ohne mit dem Finger einen Teil des Displays zu verdecken \cite{Wu:2016:Study-of-Smart-Watch}.
+
+\section{Assistenzsystem mit Bluetooth}
+
+2008 haben \textcite{Bohonos:2008:Cellphone-Accessible-Information} ein System entwickelt, durch das sehbeeinträchtigte Personen Unterstützung im öffentlichen Raum bekommen können. Dieses System basiert auf der Bluetooth-Technologie. An einer Straßenkreuzung wurden Ampeln mit Bluetooth-Modulen ausgerüstet. Trägt eine Person ein Bluetooth-fähiges Smartphone bei sich, kann dieses bei Annäherung an eine Ampel das Modul erkennen und sich authentifizieren. Das Smartphone erhält daraufhin Echtzeit-Informationen über den Übergang und die Ampelphase, die es über den Lautsprecher dem Besitzer des Telefons mitteilen kann.
+
+Bluetooth eignet sich hierfür besser als GPS, da dessen Reichweite auf wenige Meter begrenzt ist. Nur Geräte, die sind in unmittelbarer Nähe befinden, haben Zugriff auf das System. Auch können mit GPS keine Informationen übertragen werden, wie etwa den Zustand der Ampelanlage. Als weiterer Einsatzzweck wurde eine Bushaltestelle genannt, die den erreichbaren Smartphones Informationen über den Fahrplan und die Liniennummer eines ankommenden Busses mitteilen kann.
